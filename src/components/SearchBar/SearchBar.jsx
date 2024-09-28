@@ -1,5 +1,7 @@
 import { Field, Form, Formik } from "formik";
 import toast from "react-hot-toast";
+import s from "./SearchBar.module.css";
+import { BsSearch } from "react-icons/bs";
 
 const SearchBar = ({ onSubmit }) => {
   const initialValues = {
@@ -14,17 +16,20 @@ const SearchBar = ({ onSubmit }) => {
   };
 
   return (
-    <header>
+    <header className={s.header}>
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-        <Form>
+        <Form className={s.form}>
           <Field
+            className={s.input}
             type="text"
             name="query"
             autoComplete="off"
             // autoFocus
             placeholder="Search images and photos"
           />
-          <button type="submit">Search</button>
+          <button className={s.btn} type="submit">
+            <BsSearch className={s.icon} />
+          </button>
         </Form>
       </Formik>
     </header>
